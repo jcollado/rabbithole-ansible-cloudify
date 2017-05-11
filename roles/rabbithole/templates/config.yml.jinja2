@@ -4,11 +4,11 @@ blocks:
   - name: input
     type: amqp
     kwargs:
-      url: 'ampq://{{ amqp.username }}:{{ amqp.password }}@{{ amqp.host }}:{{ amqp.port }}'
+      url: 'ampq://{{ amqp_username }}:{{ amqp_password }}@{{ amqp_host }}:{{ amqp_port }}'
   - name: output
     type: sql
     kwargs:
-      url: 'postgres://{{ sql.username }}:{{ sql.password }}@{{ sql.host }}:{{ sql.port }}/{{ sql.dbname }}'
+      url: 'postgres://{{ sql_username }}:{{ sql_password }}@{{ sql_host }}:{{ sql_port }}/{{ sql_dbname }}'
 flows:
   - - name: input
       kwargs:

@@ -1,0 +1,27 @@
+---
+# rabbithole version installed from pip
+version: 0.3
+
+# Directories
+virtualenv_dir: /opt/rabbithole/env
+config_dir: /etc/opt/rabbithole
+log_dir: /var/log/cloudify
+service_dir: /lib/systemd/system
+
+# Filenames
+config_filename: config.yml
+service_filename: rabbithole.service
+log_filename: rabbithole.log
+
+# AMQP (rabbitmq)
+amqp_host: localhost
+amqp_port: 5672
+amqp_username: cloudify
+amqp_password: c10udify
+
+# SQL (postgresql)
+sql_host: localhost
+sql_port: 5432
+sql_username: cloudify
+sql_password: cloudify
+sql_dbname: cloudify_db

@@ -1,0 +1,27 @@
+---
+- name: install virtualenv
+  pip:
+    name: virtualenv
+    state: present
+- name: install rabbithole
+  pip:
+    name: rabbithole[postgresql]
+    version: "{{ version }}"
+    virtualenv: "{{ virtualenv_dir }}"
+- name: create configuration directory
+  file:
+    path: "{{ config_dir }}"
+    state: directory
+- name: create configuration file
+  template:
+    src: "templates/{{ config_filename }}.jinja2"
+    dest: "{{ config_dir }}/{{ config_filename }}"
+- name: create service file
+  template:
+    src: "templates/{{ service_filename }}.jinja2"
+    dest: "{{ service_dir }}/{{ service_filename }}"
+- name: start service
+  systemd:
+    name: rabbithole
+    state: started
+    daemon-reload: yes
