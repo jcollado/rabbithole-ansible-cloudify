@@ -1,0 +1,5 @@
+[Unit]
+Description=rabbithole
+
+[Service]
+ExecStart={{ virtualenv_dir }}/bin/rabbithole -l debug -f {{ log_dir }}/{{ log_filename }} {{ config_dir }}/{{ config_filename }}
